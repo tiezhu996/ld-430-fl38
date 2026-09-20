@@ -21,4 +21,15 @@ export class DownloadController {
   async create(@Param('assetId') assetId: string, @Req() req: Request & { user?: AuthUser }, @Body('purpose') purpose: DownloadPurpose = DownloadPurpose.Personal) {
     return ok(await this.downloadService.create(assetId, req.user ?? { id: 'anonymous', role: undefined as never }, purpose), '下载已记录');
   }
+
+  @Post(DOWNLOAD_ROUTES.redeem)
+  async redeem(
+    @Param('assetId') assetId: string,
+    @Req() req: Request & { user?: AuthUser },
+    @Body('code') code: string,
+    @Body('purpose') purpose: DownloadPurpose = DownloadPurpose.Commercial,
+  ) {
+    const user = req.user ?? { id: 'anonymous', role: undefined as never };
+    return ok(await this.downloadService.redeemWithLicense(assetId, user, code, purpose), '许可下载已记录');
+  }
 }

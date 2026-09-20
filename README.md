@@ -31,6 +31,8 @@ MinIO Console 地址：http://localhost:9001
 - `GET /categories`、`POST /categories`：多级分类管理。
 - `GET /collections`、`POST /collections`、`PATCH /collections/:id/assets/:assetId`：收藏夹与协作素材集。
 - `POST /assets/:assetId/downloads`、`GET /downloads`：下载记录和许可校验。
+- `POST /licenses/assets/:assetId`、`GET /licenses`、`GET /licenses/:code`、`POST /licenses/:code/revoke`：Commercial/Extended 素材的 24 小时一次性下载许可签发、查询与撤销（仅管理员、审核员或素材上传者）。
+- `POST /assets/:assetId/downloads/redeem`：持许可码下载，校验许可有效性、素材状态与用途，过期/已撤销/已归档拒绝且不计下载量。
 - `GET /tags`、`POST /tags`：标签管理。
 - `POST /reviews/assets/:assetId`、`GET /reviews`：素材审核记录。
 
