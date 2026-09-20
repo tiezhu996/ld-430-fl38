@@ -20,6 +20,9 @@ export class DownloadRecord {
 
   @Prop({ required: true })
   licenseVersion!: string;
+
+  @Prop()
+  licenseCode?: string;
 }
 
 export const DownloadRecordSchema = SchemaFactory.createForClass(DownloadRecord);

@@ -36,6 +36,13 @@ export enum DownloadPurpose {
   Editorial = 'Editorial',
 }
 
+export enum LicenseStatus {
+  Active = 'Active',
+  Used = 'Used',
+  Revoked = 'Revoked',
+  Expired = 'Expired',
+}
+
 export enum TagCategory {
   Style = 'Style',
   Color = 'Color',

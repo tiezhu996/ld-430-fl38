@@ -30,6 +30,10 @@ export class AssetService {
     return asset;
   }
 
+  findById(id: string) {
+    return this.assetModel.findById(id).exec();
+  }
+
   async create(payload: Partial<Asset>) {
     if (!payload.assetType || !payload.fileFormat || !validateFileFormat(payload.assetType, payload.fileFormat)) {
       throw new BadRequestException('文件格式与素材类型不匹配');
